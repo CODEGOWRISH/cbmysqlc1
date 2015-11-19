@@ -1,0 +1,38 @@
+#
+# Author: Gowrish Mallipattana
+#
+# ERB Template for config.ini
+#
+
+# TCP settings
+[tcp default]
+#portnumber=2202 # This is the default port. And,it is recommended to comment out and allow it to use this default by default
+    
+# Management Server settings
+[ndb_mgmd default]
+[ndb_mgmd]
+HostName=<%= @hostnameNode1 %>
+DataDir=<%= @clusterDir %>
+NodeId=1
+    
+# Data Node settings
+[ndbd default]	# These are defaults to be used on each data node
+NoOfReplicas= 2
+DataMemory=80M
+IndexMemory=18M
+DataDir=<%= @dataDir %>
+
+[ndbd]
+HostName=<%= @hostnameNode1 %>
+NodeId=2
+    
+[ndbd]
+HostName=<%= @hostnameNode2 %>
+NodeId=3
+    
+# SQL Node settings
+[mysqld  default]
+
+[mysqld]	# node specific settings
+HostName=<%= @hostnameNode2 %>
+NodeId=4

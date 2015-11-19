@@ -1,0 +1,16 @@
+  #
+# Author: Gowrish Mallipattana
+#
+# ERB Template for my.cnf
+#
+
+[ndbd]
+ndb-connectstring=<%= @hostnameNode1 %>
+ 
+# Add the following of mysqld and mysql_cluster - if the node is also used as SQL node
+[mysqld]
+ndbcluster  # run NDB storage engine, not the other one
+ndb-connectstring=<%= @hostnameNode1 %>  # location of management server
+
+[mysql_cluster]
+ndb-connectstring=<%= @hostnameNode1 %> # location of management server
