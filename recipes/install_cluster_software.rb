@@ -26,15 +26,6 @@ end
 # Install Client software on node2
 #if #{node['hostname']} == #{node[:node2][:hostName]}
  if node['hostname'] == node[:node2][:hostName]
-  bash 'testing hostname' do
-
-    code <<-EOH
-      user "root"
-      mv  #{node['hostname']} #{node[:node2][:hostName]}
-    EOH
-
-  end
-
  bash 'install client software' do
     user "root"
     code <<-EOH
