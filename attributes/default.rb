@@ -11,6 +11,7 @@ default['dataDir']       = '/var/lib/mysql-cluster/data'
 default['hostsFile']     = '/etc/hosts'
 default['myCnfFile']     = '/etc/my.cnf'
 default['configIniFile'] = '/var/lib/mysql-cluster/config.ini'
+default['usrClusterDir'] = '/usr/mysql-cluster'
 
 default['softwareFolder'] = '/vagrant'
 default['serverRPM']      = 'MySQL-Cluster-server-advanced-7.4.7-1.el6.x86_64.rpm'

@@ -36,7 +36,10 @@ end
 
 # Create config.ini file from template
 configIniFile=node[:configIniFile]
-
+execute 'backup current config.ini file' do
+  user "root"
+  command "cp #{configIniFile} #{configIniFile}.bak"
+end
 template "#{configIniFile}" do
   source 'config_ini.erb'
    owner 'root'
@@ -48,4 +51,14 @@ template "#{configIniFile}" do
      :dataDir         => node[:dataDir],
      :hostnameNode2   => node[:node2][:hostName]
   })
+end
+
+# Create link in /usr/mysql-cluster
+bash 'create link in #{node[:usrClusterDir]}' do
+  user "root"
+  code <<-EOH
+    mkdir -p #{node[:usrClusterDir]}
+    cd #{node[:usrClusterDir]}
+    ln -s #{configIniFile}
+  EOH
 end
