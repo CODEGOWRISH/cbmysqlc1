@@ -23,7 +23,7 @@ bash 'install cluster software' do
   EOH
 end
 
-# Install Client software on node2
+# Install Client software only on node2
 #if #{node['hostname']} == #{node[:node2][:hostName]}
  if node['hostname'] == node[:node2][:hostName]
  bash 'install client software' do

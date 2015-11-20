@@ -15,7 +15,8 @@
 # Start ndb_mgmd and ndbd both on node1
 configIniFile=node[:configIniFile]
 
-if #{node['hostname']} == #{node[:node1][:hostName]}
+#if #{node['hostname']} == #{node[:node1][:hostName]}
+if node['hostname'] == node[:node1][:hostName]
   bash 'start cluster ndb_mgmd and ndbd' do
    user "root"
     code <<-EOH
