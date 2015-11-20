@@ -5,23 +5,26 @@
 #
 #
 
-# Create directories
-bash 'create directories' do
-  
-  user "root"
+# Files to create/update
+myCnfFile=node[:myCnfFile]
+configIniFile=node[:configIniFile]
 
+# Create directories
+bash 'create directories, touch files' do
+  user "root"
   code <<-EOH
     mkdir -p #{node[:clusterDir]}
     mkdir -p #{node[:dataDir]}
-  EOH
 
+    touch #{myCnfFile}
+    touch #{configIniFile}
+  EOH
 end
 
 # Create my.cnf file from template
-myCnfFile=node[:myCnfFile]
 execute 'backup current my.cnf' do
   user "root"
-  command "cp #{myCnfFile} #{myCnfFile}.bak"
+  command "mv #{myCnfFile} #{myCnfFile}.bak"
 end
 
 template "#{myCnfFile}" do
@@ -35,11 +38,11 @@ template "#{myCnfFile}" do
 end
 
 # Create config.ini file from template
-configIniFile=node[:configIniFile]
 execute 'backup current config.ini file' do
   user "root"
-  command "cp #{configIniFile} #{configIniFile}.bak"
+  command "mv #{configIniFile} #{configIniFile}.bak"
 end
+
 template "#{configIniFile}" do
   source 'config_ini.erb'
    owner 'root'
@@ -54,11 +57,11 @@ template "#{configIniFile}" do
 end
 
 # Create link in /usr/mysql-cluster
-bash 'create link in #{node[:usrClusterDir]}' do
+bash 'create link in "#{node[:usrClusterDir]}"' do
   user "root"
   code <<-EOH
     mkdir -p #{node[:usrClusterDir]}
     cd #{node[:usrClusterDir]}
-    ln -s #{configIniFile}
+    ln -sf #{configIniFile}
   EOH
 end

@@ -6,8 +6,9 @@
 
 # TCP settings
 [tcp default]
-#portnumber=2202 # This is the default port. And,it is recommended to comment out and allow it to use this default by default
-    
+# This is the default port. And,it is recommended to comment out and allow it to use this default by default
+#portnumber=2202 
+
 # Management Server settings
 [ndb_mgmd default]
 [ndb_mgmd]
@@ -16,7 +17,7 @@ DataDir=<%= @clusterDir %>
 NodeId=1
     
 # Data Node settings
-[ndbd default]	# These are defaults to be used on each data node
+[ndbd default]
 NoOfReplicas= 2
 DataMemory=80M
 IndexMemory=18M
@@ -33,6 +34,6 @@ NodeId=3
 # SQL Node settings
 [mysqld  default]
 
-[mysqld]	# node specific settings
+[mysqld]
 HostName=<%= @hostnameNode2 %>
 NodeId=4

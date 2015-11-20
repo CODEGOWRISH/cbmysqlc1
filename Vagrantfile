@@ -87,8 +87,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       mysqlc1n1.vm.provision :chef_solo do |chef|
         chef.run_list = [
-        #'recipe[cbmysqlc1::default]','recipe[cbmysqlc1::update_etc_hosts]','recipe[cbmysqlc1::install_cluster_software]','recipe[cbmysqlc1::create_mysql_config_files]'
-        'recipe[cbmysqlc1::default]','recipe[cbmysqlc1::update_etc_hosts]','recipe[cbmysqlc1::create_mysql_config_files]'
+        #'recipe[cbmysqlc1::default]','recipe[cbmysqlc1::update_etc_hosts]','recipe[cbmysqlc1::install_cluster_software]','recipe[cbmysqlc1::create_mysql_config_files]', 'recipe[cbmysqlc1::start_cluster_processes]'
+        'recipe[cbmysqlc1::default]','recipe[cbmysqlc1::update_etc_hosts]','recipe[cbmysqlc1::create_mysql_config_files]','recipe[cbmysqlc1::start_cluster_processes]'
         ]
       end
 
