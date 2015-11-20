@@ -25,13 +25,20 @@ if #{node['hostname']} == #{node[:node1][:hostName]}
   end
 end
 
-# Start ndbd on node2
-if #{node['hostname']} == #{node[:node2][:hostName]}
-
+# Start ndbd and mysqld on node2
+#if #{node['hostname']} == #{node[:node2][:hostName]}
+if node['hostname'] == node[:node2][:hostName]
  bash 'start ndbd' do
     user "root"
     code <<-EOH
       ndbd > /tmp/ndbd_start.out 2>> /tmp/ndbd_start.out
+    EOH
+ end
+
+ bash 'start mysqld' do
+    user "root"
+    code <<-EOH
+      /etc/init.d/mysql start  > /tmp/mysqld_start.out 2>> /tmp/mysqld_start.out
     EOH
  end
 end
