@@ -57,7 +57,7 @@ template "#{configIniFile}" do
 end
 
 # Create link in /usr/mysql-cluster
-bash 'create link in "#{node[:usrClusterDir]}"' do
+bash 'create link in /usr/mysql-cluster directory' do
   user "root"
   code <<-EOH
     mkdir -p #{node[:usrClusterDir]}
