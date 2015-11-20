@@ -16,9 +16,9 @@
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['cbmysqlc1']['bacon']</tt></td>
+    <td><tt>['cbmysqlc1']</tt></td>
     <td>Boolean</td>
-    <td>whether to include bacon</td>
+    <td>no idea what this is</td>
     <td><tt>true</tt></td>
   </tr>
 </table>
