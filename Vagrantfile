@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # customization syntax for virtualbox
       mysqlc1n1.vm.provider "virtualbox" do |v|
           v.customize [ "modifyvm", :id, "--cpus", "1" ]
-          v.customize [ "modifyvm", :id, "--memory", "512" ]
+          v.customize [ "modifyvm", :id, "--memory", "768" ]
       end
 
       # Network
