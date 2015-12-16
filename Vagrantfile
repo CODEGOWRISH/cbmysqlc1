@@ -35,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Box
   config.vm.box = 'oracle-oel65-64'
   config.vm.box_url = 'https://storage.us2.oraclecloud.com/v1/istoilis-istoilis/vagrant/oel65-64.box'
-  config.ssh.password = 'vagrant'
+  #config.ssh.password = 'vagrant'
   
   # Box override  if using vmware_fusion
   config.vm.provider "vmware_fusion" do |v, override|
