@@ -7,6 +7,11 @@
 .*
 pkg/
 
+*.rpm
+*.bz2
+*.zip
+*.gz
+
 # Berkshelf
 .vagrant
 /cookbooks
