@@ -1,6 +1,4 @@
 #
-# Author: Gowrish.Mallipattana
-#
 # Update /etc/hosts with cluster node details
 #
 #
