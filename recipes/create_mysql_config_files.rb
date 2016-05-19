@@ -1,6 +1,4 @@
 #
-# Author: Gowrish.Mallipattana
-#
 # Install mysql configuration files from ERB templates
 #
 #
