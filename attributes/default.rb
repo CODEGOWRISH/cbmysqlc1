@@ -1,6 +1,4 @@
 #                                                                                         
-# Author: Gowrish.Mallipattana                                                            
-#                                                                                         
 # Attributes file default.rb for mysql installation                                      
 #                                                                                         
 #                                                                                         
