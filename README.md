@@ -39,4 +39,4 @@ Include `cbmysqlc1` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: Gowrish Mallipattana
+
